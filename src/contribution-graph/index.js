@@ -110,7 +110,7 @@ class ContributionGraph extends AbstractChart {
         }
       }
     }
-    return this.props.chartConfig.color(0.15)
+    return (this.props.chartConfig.squareColor && this.props.chartConfig.squareColor()) || this.props.chartConfig.color(0.15)
   }
 
   getTitleForIndex(index) {
@@ -239,7 +239,7 @@ class ContributionGraph extends AbstractChart {
           fontSize={12}
           x={x + paddingLeft}
           y={y + 8}
-          fill={this.props.chartConfig.color(0.5)}
+          fill={(this.props.chartConfig.textColor && this.props.chartConfig.textColor()) || this.props.chartConfig.color(0.5)}
         >
           {MONTH_LABELS[endOfWeek.getMonth()]}
         </Text>
